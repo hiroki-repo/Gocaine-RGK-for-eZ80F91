@@ -46,7 +46,7 @@ WEBTOC = @"$(BIN)\mkwebpage"
 
 CFLAGS =  \
 -define:NDEBUG -define:_EZ80F91 -define:_EZ80ACCLAIM!  \
--define:_SIMULATE -genprintf -NOkeepasm -NOkeeplst -NOlist  \
+-define:_SIMULATE -genprintf -NOkeepasm -keeplst -NOlist  \
 -NOlistinc -NOmodsect -optsize -promote -NOreduceopt  \
 -stdinc:"\"..;C:\Zilog\ZDSII_eZ80Acclaim!_5.3.5\include\std;C:\Zilog\ZDSII_eZ80Acclaim!_5.3.5\include\zilog\""  \
 -usrinc:"\"..;\"" -NOmultithread -NOpadbranch -NOdebug  \

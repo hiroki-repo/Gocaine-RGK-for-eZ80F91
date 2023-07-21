@@ -6,7 +6,7 @@
 
 /* compiler options */
 /* -define:NDEBUG -define:_EZ80F91 -define:_EZ80ACCLAIM! */
-/* -define:_SIMULATE -genprintf -NOkeepasm -NOkeeplst -NOlist */
+/* -define:_SIMULATE -genprintf -NOkeepasm -keeplst -NOlist */
 /* -NOlistinc -NOmodsect -optsize -promote -NOreduceopt */
 /* -stdinc:"\"..;C:\Zilog\ZDSII_eZ80Acclaim!_5.3.5\include\std;C:\Zilog\ZDSII_eZ80Acclaim!_5.3.5\include\zilog\"" */
 /* -usrinc:"\"..;\"" -NOmultithread -NOpadbranch -NOdebug */
@@ -25,30 +25,13 @@
 
 -FORMAT=OMF695,INTEL32
 -map -maxhexlen=64 -quiet -warnoverlap -xref -unresolved=fatal
--sort name=ascending -warn -NOdebug -NOigcase
+-sort NAME=ascending -warn -NOdebug -NOigcase
 
 RANGE ROM $000000 : $03FFFF
 RANGE RAM $B7E000 : $B7FFFF
 RANGE EXTIO $000000 : $00FFFF
 RANGE INTIO $000000 : $0000FF
 
-CHANGE STRSECT is ROM
-
-ORDER .RESET,.IVECTS,.STARTUP,CODE,DATA
-COPY DATA ROM
-
-DEFINE __low_romdata = copy base of DATA
-DEFINE __low_data = base of DATA
-DEFINE __len_data = length of DATA
-DEFINE __low_bss = base of BSS
-DEFINE __len_bss = length of BSS
-DEFINE __stack = highaddr of RAM + 1
-DEFINE __heaptop = highaddr of RAM
-DEFINE __heapbot = top of RAM + 1
-DEFINE __low_romcode = copy base of CODE
-DEFINE __low_code = base of CODE
-DEFINE __len_code = length of CODE
-DEFINE __copy_code_to_ram = 0
 DEFINE __crtl = 1
 DEFINE __CS0_LBR_INIT_PARAM = $10
 DEFINE __CS0_UBR_INIT_PARAM = $8f
@@ -78,9 +61,6 @@ define _OSC_FREQ_MULT = 1
 define __PLL_CTL0_INIT_PARAM = $00
 
 "C:\Users\hiroki_repo\eZ80F91GocaineRTOS_TEST_CONFIDENTIAL\source\Release\Kernel"= \
- "C:\Zilog\ZDSII_eZ80Acclaim!_5.3.5\lib\zilog\vectors24.obj", \
- "C:\Zilog\ZDSII_eZ80Acclaim!_5.3.5\lib\zilog\init_params_f91.obj", \
- "C:\Zilog\ZDSII_eZ80Acclaim!_5.3.5\lib\zilog\cstartup.obj", \
  ".\Kernel.obj", \
  "C:\Zilog\ZDSII_eZ80Acclaim!_5.3.5\lib\std\chelp.lib", \
  "C:\Zilog\ZDSII_eZ80Acclaim!_5.3.5\lib\std\crt.lib", \
