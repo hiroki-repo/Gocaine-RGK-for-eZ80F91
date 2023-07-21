@@ -1,0 +1,284 @@
+Zilog eZ80 Macro Assembler Version 4.3 (19073001)06-Jul-23     15:11:45     page:   1
+
+
+PC     Object              I  Line    Source 
+                           A     1    		CPU	= EZ80F91
+                           A     2    		.ORG 0
+                           A     3            .ASSUME ADL=0
+000000 F3                  A     4    		di
+000001 ED7D                A     5    		stmix
+000003 5BC3 2E 01 00       A     6    		jp.lil init
+000008 00                  A     7    		nop
+000009 00                  A     8    		nop
+00000A 00                  A     9    		nop
+00000B 5BC3 13 02 00       A    10    		jp.lil syscall
+000010 00                  A    11    		nop
+000011 00                  A    12    		nop
+000012 00                  A    13    		nop
+000013 5BC3 15 02 00       A    14    		jp.lil nohandler
+000018 00                  A    15    		nop
+000019 00                  A    16    		nop
+00001A 00                  A    17    		nop
+00001B 5BC3 15 02 00       A    18    		jp.lil nohandler
+000020 00                  A    19    		nop
+000021 00                  A    20    		nop
+000022 00                  A    21    		nop
+000023 5BC3 15 02 00       A    22    		jp.lil nohandler
+000028 00                  A    23    		nop
+000029 00                  A    24    		nop
+00002A 00                  A    25    		nop
+00002B 5BC3 15 02 00       A    26    		jp.lil nohandler
+000030 00                  A    27    		nop
+000031 00                  A    28    		nop
+000032 00                  A    29    		nop
+000033 5BC3 15 02 00       A    30    		jp.lil nohandler
+000038 00                  A    31    		nop
+000039 00                  A    32    		nop
+00003A 00                  A    33    		nop
+00003B 5BC3 15 02 00       A    34    		jp.lil nohandler
+                           A    35    		;0x40 - EMAC Rx
+000040 17020000            A    36    		DL nohandler4i
+000044 00                  A    37    		DB 0
+                           A    38    		;0x44 - EMAC Tx
+000045 17020000            A    39    		DL nohandler4i
+000049 00                  A    40    		DB 0
+                           A    41    		;0x48 - EMAC SYS
+00004A 17020000            A    42    		DL nohandler4i
+00004E 00                  A    43    		DB 0
+                           A    44    		;0x4C -  PLL
+00004F 17020000            A    45    		DL nohandler4i
+000053 00                  A    46    		DB 0
+                           A    47    		;0x50 - Flash
+000054 17020000            A    48    		DL nohandler4i
+000058 00                  A    49    		DB 0
+                           A    50    		;0x54 - Timer 0
+000059 49010000            A    51    		DL contextswitch
+00005D 00                  A    52    		DB 0
+                           A    53    		;0x58 - Timer 1
+00005E 17020000            A    54    		DL nohandler4i
+000062 00                  A    55    		DB 0
+                           A    56    		;0x5C - Timer 2
+000063 17020000            A    57    		DL nohandler4i
+000067 00                  A    58    		DB 0
+                           A    59    		;0x60 - Timer 3
+000068 17020000            A    60    		DL nohandler4i
+00006C 00                  A    61    		DB 0
+                           A    62    		;NMI Handler
+00006D 0000                A    63    		DW 0
+00006F 5BC3 1B 02 00       A    64    		jp.lil nmihandler
+000074 00                  A    65    		DB 0
+                           A    66    		;0x6C -  RTC
+000075 17020000            A    67    		DL nohandler4i
+000079 00                  A    68    		DB 0
+                           A    69    		;0x70 - UART 0
+00007A 17020000            A    70    		DL nohandler4i
+00007E 00                  A    71    		DB 0
+                           A    72    		;0x74 - UART 1
+00007F 17020000            A    73    		DL nohandler4i
+000083 00                  A    74    		DB 0
+                           A    75    		;0x78 -  I2C
+000084 17020000            A    76    		DL nohandler4i
+000088 00                  A    77    		DB 0
+                           A    78    		;0x7C -  SPI
+000089 17020000            A    79    		DL nohandler4i
+00008D 00                  A    80    		DB 0
+                           A    81    		;0x80 - Port A 0
+00008E 17020000            A    82    		DL nohandler4i
+000092 00                  A    83    		DB 0
+                           A    84    		;0x84 - Port A 1
+000093 17020000            A    85    		DL nohandler4i
+000097 00                  A    86    		DB 0
+                           A    87    		;0x88 - Port A 2
+000098 17020000            A    88    		DL nohandler4i
+00009C 00                  A    89    		DB 0
+                           A    90    		;0x8C - Port A 3
+00009D 17020000            A    91    		DL nohandler4i
+0000A1 00                  A    92    		DB 0
+                           A    93    		;0x90 - Port A 4
+0000A2 17020000            A    94    		DL nohandler4i
+0000A6 00                  A    95    		DB 0
+                           A    96    		;0x94 - Port A 5
+0000A7 17020000            A    97    		DL nohandler4i
+0000AB 00                  A    98    		DB 0
+                           A    99    		;0x98 - Port A 6
+0000AC 17020000            A   100    		DL nohandler4i
+0000B0 00                  A   101    		DB 0
+                           A   102    		;0x9C - Port A 7
+0000B1 17020000            A   103    		DL nohandler4i
+0000B5 00                  A   104    		DB 0
+                           A   105    		;0xA0 - Port B 0
+0000B6 17020000            A   106    		DL nohandler4i
+0000BA 00                  A   107    		DB 0
+                           A   108    		;0xA4 - Port B 1
+0000BB 17020000            A   109    		DL nohandler4i
+0000BF 00                  A   110    		DB 0
+                           A   111    		;0xA8 - Port B 2
+0000C0 17020000            A   112    		DL nohandler4i
+0000C4 00                  A   113    		DB 0
+                           A   114    		;0xAC - Port B 3
+0000C5 17020000            A   115    		DL nohandler4i
+0000C9 00                  A   116    		DB 0
+                           A   117    		;0xB0 - Port B 4
+0000CA 17020000            A   118    		DL nohandler4i
+0000CE 00                  A   119    		DB 0
+                           A   120    		;0xB4 - Port B 5
+0000CF 17020000            A   121    		DL nohandler4i
+0000D3 00                  A   122    		DB 0
+                           A   123    		;0xB8 - Port B 6
+0000D4 17020000            A   124    		DL nohandler4i
+0000D8 00                  A   125    		DB 0
+                           A   126    		;0xBC - Port B 7
+0000D9 17020000            A   127    		DL nohandler4i
+0000DD 00                  A   128    		DB 0
+                           A   129    		;0xC0 - Port C 0
+0000DE 17020000            A   130    		DL nohandler4i
+0000E2 00                  A   131    		DB 0
+                           A   132    		;0xC4 - Port C 1
+0000E3 17020000            A   133    		DL nohandler4i
+0000E7 00                  A   134    		DB 0
+                           A   135    		;0xC8 - Port C 2
+0000E8 17020000            A   136    		DL nohandler4i
+0000EC 00                  A   137    		DB 0
+                           A   138    		;0xCC - Port C 3
+0000ED 17020000            A   139    		DL nohandler4i
+0000F1 00                  A   140    		DB 0
+                           A   141    		;0xD0 - Port C 4
+0000F2 17020000            A   142    		DL nohandler4i
+0000F6 00                  A   143    		DB 0
+                           A   144    		;0xD4 - Port C 5
+0000F7 17020000            A   145    		DL nohandler4i
+0000FB 00                  A   146    		DB 0
+                           A   147    		;0xD8 - Port C 6
+0000FC 17020000            A   148    		DL nohandler4i
+000100 00                  A   149    		DB 0
+                           A   150    		;0xDC - Port C 7
+000101 17020000            A   151    		DL nohandler4i
+000105 00                  A   152    		DB 0
+                           A   153    		;0xE0 - Port D 0
+000106 17020000            A   154    		DL nohandler4i
+00010A 00                  A   155    		DB 0
+                           A   156    		;0xE4 - Port D 1
+00010B 17020000            A   157    		DL nohandler4i
+00010F 00                  A   158    		DB 0
+                           A   159    		;0xE8 - Port D 2
+000110 17020000            A   160    		DL nohandler4i
+000114 00                  A   161    		DB 0
+                           A   162    		;0xEC - Port D 3
+000115 17020000            A   163    		DL nohandler4i
+000119 00                  A   164    		DB 0
+                           A   165    		;0xF0 - Port D 4
+00011A 17020000            A   166    		DL nohandler4i
+00011E 00                  A   167    		DB 0
+                           A   168    		;0xF4 - Port D 5
+00011F 17020000            A   169    		DL nohandler4i
+000123 00                  A   170    		DB 0
+                           A   171    		;0xF8 - Port D 6
+000124 17020000            A   172    		DL nohandler4i
+000128 00                  A   173    		DB 0
+                           A   174    		;0xFC - Port D 7
+000129 17020000            A   175    		DL nohandler4i
+00012D 00                  A   176    		DB 0
+                           A   177            .ASSUME ADL=1
+       00410000            A   178    contextarea		EQU 410000h
+       0040D000            A   179    contexttmpflag	EQU 40D000h
+       0040C000            A   180    contexttmp		EQU 40C000h
+       00408000            A   181    stackarea4rtos	EQU 408000h
+00012E                     A   182    init:
+00012E 31008040            A   183    		ld sp,stackarea4rtos
+000132 3E 00               A   184    		ld a,timercount & 0ffh
+-----WARNING (505) Label "timercount" not defined, treated as XREF.
+000134 ED3963              A   185    		out0 (063h),a
+000137 3E 00               A   186    		ld a,timercount >> 8
+000139 ED3964              A   187    		out0 (064h),a
+00013C 3E8D                A   188    		ld a,8dh
+00013E ED3960              A   189    		out0 (060h),a
+000141 3E01                A   190    		ld a,1
+000143 ED3961              A   191    		out0 (061h),a
+000146 FB                  A   192    		ei
+000147 18 FE               A   193    lplp:	jr lplp
+000149                     A   194    contextswitch:
+000149 F3                  A   195    		di
+00014A ED731EC0 40         A   196    		ld (contexttmp+(3*10)),sp
+00014F 3103C040            A   197    		ld sp,contexttmp+3
+000153 F5                  A   198    		push af
+000154 ED4303C0 40         A   199    		ld (contexttmp+(3*1)),bc
+000159 ED5306C0 40         A   200    		ld (contexttmp+(3*2)),de
+00015E 2209C040            A   201    		ld (contexttmp+(3*3)),hl
+000162 08                  A   202    		ex af,af'
+000163 D9                  A   203    		exx
+000164 310FC040            A   204    		ld sp,contexttmp+15
+000168 F5                  A   205    		push af
+000169 ED430FC0 40         A   206    		ld (contexttmp+(3*5)),bc
+00016E ED5312C0 40         A   207    		ld (contexttmp+(3*6)),de
+000173 2215C040            A   208    		ld (contexttmp+(3*7)),hl
+000177 D9                  A   209    		exx
+000178 08                  A   210    		ex af,af'
+000179 DD2218C0 40         A   211    		ld (contexttmp+(3*8)),ix
+00017E FD221BC0 40         A   212    		ld (contexttmp+(3*9)),iy
+000183 21000000            A   213    		ld hl,0
+000187 4039                A   214    		add.sis hl,sp
+000189 2221C040            A   215    		ld (contexttmp+(3*11)),hl
+00018D ED6E                A   216    		ld a,mb
+00018F 3224C040            A   217    		ld (contexttmp+(3*12)+0),a
+                           A   218    		;change a context
+000193 3A00D040            A   219    		ld a,(contexttmpflag)
+000197 57                  A   220    		ld d,a
+000198 1E40                A   221    		ld e,64
+00019A ED5C                A   222    		mlt de
+00019C 21000041            A   223    		ld hl,contextarea
+0001A0 19                  A   224    		add hl,de
+0001A1 EB                  A   225    		ex de,hl
+0001A2 2100C040            A   226    		ld hl,contexttmp
+0001A6 01400000            A   227    		ld bc,64
+0001AA EDB0                A   228    		ldir
+0001AC EB                  A   229    		ex de,hl
+0001AD 3A00D040            A   230    		ld a,(contexttmpflag)
+0001B1 3C                  A   231    		inc a
+0001B2 3200D040            A   232    		ld (contexttmpflag),a
+0001B6 57                  A   233    		ld d,a
+0001B7 1E40                A   234    		ld e,64
+0001B9 ED5C                A   235    		mlt de
+0001BB 21000041            A   236    		ld hl,contextarea
+0001BF 19                  A   237    		add hl,de
+0001C0 1100C040            A   238    		ld de,contexttmp
+0001C4 01400000            A   239    		ld bc,64
+0001C8 EDB0                A   240    		ldir
+                           A   241    		;set for other context
+0001CA 2A21C040            A   242    		ld hl,(contexttmp+(3*11))
+0001CE 40F9                A   243    		ld.sis sp,hl
+0001D0 3A24C040            A   244    		ld a,(contexttmp+(3*12)+0)
+0001D4 ED6D                A   245    		ld mb,a
+0001D6 3100C040            A   246    		ld sp,contexttmp+0
+0001DA F1                  A   247    		pop af
+0001DB ED4B03C0 40         A   248    		ld bc,(contexttmp+(3*1))
+0001E0 ED5B06C0 40         A   249    		ld de,(contexttmp+(3*2))
+0001E5 2A09C040            A   250    		ld hl,(contexttmp+(3*3))
+0001E9 08                  A   251    		ex af,af'
+0001EA D9                  A   252    		exx
+0001EB 310CC040            A   253    		ld sp,contexttmp+12
+0001EF F1                  A   254    		pop af
+0001F0 ED4B0FC0 40         A   255    		ld bc,(contexttmp+(3*5))
+0001F5 ED5B12C0 40         A   256    		ld de,(contexttmp+(3*6))
+0001FA 2A15C040            A   257    		ld hl,(contexttmp+(3*7))
+0001FE D9                  A   258    		exx
+0001FF 08                  A   259    		ex af,af'
+000200 DD2A18C0 40         A   260    		ld ix,(contexttmp+(3*8))
+000205 FD2A1BC0 40         A   261    		ld iy,(contexttmp+(3*9))
+00020A ED7B1EC0 40         A   262    		ld sp,(contexttmp+(3*10))
+00020F FB                  A   263    		ei
+000210 5BED4D              A   264    		reti.l
+000213                     A   265    syscall:
+000213 5BC9                A   266    		ret.l
+000215                     A   267    nohandler:
+000215 5BC9                A   268    		ret.l
+000217                     A   269    nohandler4i:
+000217 FB                  A   270    		ei
+000218 5BED4D              A   271    		reti.l
+00021B                     A   272    nmihandler:
+00021B 5BED45              A   273    		retn.l
+                           A   274    		END
+
+
+Errors: 0
+Warnings: 1
+Lines Assembled: 275

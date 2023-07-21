@@ -1,0 +1,14 @@
+fname="..\\Kernel.bin"
+fname2="newtask.bin"
+fname3="cpmbase.img"
+sdim data,256*1024
+bload fname,data
+exist fname2:strsize2=strsize
+sdim data2,strsize2
+bload fname2,data2
+sdim data3,0x20000
+bload fname3,data3,-1,0x20000
+memcpy data,data2,strsize2,0x10000,0
+memcpy data,data3,0x20000,0x20000,0
+bsave fname,data
+end
